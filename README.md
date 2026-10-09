@@ -1,67 +1,49 @@
 # Grammar Scoring Engine for Spoken Data
 
-## Overview
+## About the Project
 
-This project explores the prediction of grammatical quality in spoken audio using machine learning regression techniques. The objective is to predict a continuous grammar score between 0 and 5 from audio recordings.
+This project predicts the grammar score of a spoken audio recording on a scale of 0 to 5. I worked on extracting useful features from audio files and training machine learning models to predict grammar scores.
 
-## Approach
+The project was developed as part of the SHL Hiring Assessment.
 
-The workflow consists of the following steps:
+## What I Did
 
-1. **Data Exploration:** Inspect the training data and analyze the distribution of grammar scores.
-2. **Audio Feature Extraction:** Extract acoustic features from speech recordings.
-3. **Feature Engineering:** Combine basic acoustic features with additional pitch, spectral, and speech-activity features.
-4. **Model Training:** Train and compare multiple regression algorithms.
-5. **Model Evaluation:** Evaluate predictions using Root Mean Squared Error (RMSE) and Pearson correlation on a validation set.
-6. **Prediction:** Train the selected model on the complete training dataset and generate predictions for unseen samples.
+- Explored the training dataset and checked the distribution of grammar scores.
+- Used Librosa to extract features from audio recordings.
+- Extracted MFCCs, RMS energy, zero-crossing rate, spectral centroid, pitch, and other audio features.
+- Trained and compared three machine learning regression models.
+- Evaluated the models using RMSE and Pearson correlation.
+- Selected the best-performing model and trained it on the complete training dataset.
+- Generated predictions and saved them in a CSV file for submission.
 
-## Audio Features
-
-The extracted features include:
-
-- Mel-Frequency Cepstral Coefficients (MFCCs)
-- Root Mean Square (RMS) energy
-- Zero-Crossing Rate
-- Spectral Centroid
-- Pitch statistics
-- Spectral Bandwidth
-- Spectral Rolloff
-- Approximate Speech Activity Ratio
-
-## Models Evaluated
+## Models Used
 
 - Random Forest Regressor
 - Extra Trees Regressor
 - HistGradientBoosting Regressor
 
-The models are compared using validation performance to select the final approach.
-
-## Technologies Used
+## Tools and Libraries
 
 - Python
-- NumPy
-- Pandas
+- Pandas and NumPy
 - Librosa
-- Matplotlib
 - Scikit-learn
-- Jupyter Notebook / Kaggle Notebooks
+- Matplotlib
+- Kaggle Notebook
 
-## Evaluation Metrics
+## Best Model
 
-**Root Mean Squared Error (RMSE):** Measures the difference between actual and predicted scores. Lower values indicate smaller prediction errors.
+Among the models I tested, HistGradientBoosting with additional audio features performed best on my validation split.
 
-**Pearson Correlation:** Measures the strength of the linear relationship between actual and predicted scores. Values closer to 1 indicate a stronger positive relationship.
+- **Validation RMSE:** 0.7040
+- **Pearson Correlation:** 0.8544
 
-## Output
+These results are from my validation data, not the final competition test set.
 
-The final workflow generates a CSV file containing predicted grammar scores in the required submission format.
+## What I Learned
 
-## Reproducibility and Data Usage
+Through this project, I gained practical experience in audio feature extraction, feature engineering, regression models, model evaluation, and generating predictions for unseen data.
 
-The code is intended to document the audio feature extraction and regression workflow. Competition datasets, audio recordings, and restricted prediction outputs are not included in this repository.
+## Note
 
-Use only data that you are authorized to access and distribute, and follow the applicable competition rules.
-
-## Disclaimer
-
-This project was developed as part of a machine learning assessment workflow. Results depend on the dataset, feature extraction process, validation split, and model configuration.
+The competition dataset and audio files are not included in this repository.
